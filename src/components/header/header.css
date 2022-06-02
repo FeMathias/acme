@@ -1,0 +1,6 @@
+.header__container {
+  background-image: url(../../assets/header.png);
+  height: 525px;
+  background-position: center;
+  margin: 0px 60px;
+}

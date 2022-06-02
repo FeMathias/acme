@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+li, ul, a, a:hover {
+  text-decoration: none;
+  color: unset;
+  list-style: none;
 }
+
+:root {
+  --color01: white;
+  --color02: #f2eae6;
+  --color03: #ffceb1;
+  --color04: #cd5241;
+  --color05: #b21e22;
+  --color06: #2c180d;
+  --font-light: 'Helvetica Light';
+  --font-medium: 'Helvetica Neue';
+  --font-heavy: "Helvetica Black";
+}
+
+/* PRINCIPAIS BREAKPOINTS PARA RESPONSIVIDADE:
+320px — 480px: Mobile devices
+481px — 768px: iPads, Tablets
+769px — 1024px: Small screens, laptops
+>1024px
+
+
+@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 480px) {}
+*/

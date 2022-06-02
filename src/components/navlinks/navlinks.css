@@ -1,0 +1,54 @@
+.NavLinks__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.NavLinks__container-links {
+  display: flex;
+}
+
+::placeholder {
+  color: white;
+  text-align: center;
+}
+
+li {
+  cursor: pointer;
+  margin: 0px 5px;
+  margin: 0px;
+  cursor: pointer;
+  padding: 5px 10px 0px 10px;
+}
+
+.searchBar_div {
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: var(--color02);
+}
+
+.searchBar_popup {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  width: 750px;
+  height: 50px;
+
+  justify-content: center;
+  right: 0;
+  left: 0;
+  margin-top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchBar_popup > input {
+  font-size: 0.8rem;
+  background-color: var(--color04);
+  text-align: center;
+  color: white;
+  width: 500px;
+}
