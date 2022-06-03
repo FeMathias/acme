@@ -1,0 +1,33 @@
+.footer__container {
+  display: flex;
+  margin: 50px 60px 0px 60px;
+  justify-content: space-between;
+  text-align: start;
+}
+
+.footer__lists-caller {
+  font-size: 1rem;
+}
+
+.footer__lists-acme, .footer__lists-sac {
+  font-size: 0.7rem;
+}
+
+.footer__lists-acme>li, .footer__lists-sac>li {
+  margin-left: -10px;
+}
+
+.footer__social>span {
+  height: 15px;
+  width: 15px;
+  padding: 5px 3px 8px 3px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.footer__social>span:hover {
+  background-color: var(--color04);
+  color: white;
+  transition: 0.5s;
+}

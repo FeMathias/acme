@@ -1,0 +1,42 @@
+.card__container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: fit-content;
+  margin-right: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.card__container-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px 5px;
+  margin-bottom: -15px;
+  word-wrap: none;
+}
+
+.card__container-data  > h1 {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.card__container > span {
+  margin-top: -30px;
+  text-align: center;
+  background-color: var(--color04);
+  color: yellow;
+  height: 30px;
+  width: 30px;
+}
+
+.card__container:hover {
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.144);
+}
+
+.card__addCart {
+  width: 300px;
+  height: 40px;
+  background-color: var(--color04);
+}

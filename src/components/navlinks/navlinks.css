@@ -3,15 +3,12 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100vw;
 }
 
 .NavLinks__container-links {
   display: flex;
-}
-
-::placeholder {
-  color: white;
-  text-align: center;
+  justify-content: center;
 }
 
 li {
@@ -19,7 +16,7 @@ li {
   margin: 0px 5px;
   margin: 0px;
   cursor: pointer;
-  padding: 5px 10px 0px 10px;
+  padding: 5px 10px 5px 10px;
 }
 
 .searchBar_div {
