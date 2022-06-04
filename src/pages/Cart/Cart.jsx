@@ -1,6 +1,7 @@
 import React from 'react'
 import './cart.css'
 import {BsFillBagCheckFill, BsFillCartCheckFill} from 'react-icons/bs'
+import Head from '../../Head'
 
 const Cart = () => {
   function addQtd() {
@@ -39,6 +40,7 @@ const Cart = () => {
 
   return (
     <div className='cart__container'>
+       <Head title={`ACME | Carrinho`} />
       <div className='cart__caller'>
         <span><BsFillBagCheckFill size={32}/></span>
         <h1>MEU CARRINHO</h1>

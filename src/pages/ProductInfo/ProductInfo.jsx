@@ -3,6 +3,7 @@ import './productinfo.css'
 import {AiOutlineStar, AiFillStar} from 'react-icons/ai'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Data from '../../Data'
+import Head from '../../Head'
 
 const ProductInfo = (props) => {
   
@@ -14,7 +15,7 @@ const ProductInfo = (props) => {
         <img src={`https://picsum.photos/id/${props.id*12}/500/350`} alt='id'/>
       </div>
       <div className='product__info'>
-     
+        <Head title={`ACME | ${props.nomeCompleto}`} />
         <h1>{props.nomeCompleto}</h1>
         <h3><AiFillStar size={15}/> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiOutlineStar size={15} /> <span> 462 avaliações</span></h3>
         
