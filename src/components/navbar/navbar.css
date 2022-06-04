@@ -111,3 +111,62 @@
 	-webkit-animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: var(--color04);
+  color: white;
+  z-index: 15;
+  padding: 15px 10px 10px 5px;
+
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sideMenu h1 {
+  margin-top: 50px;
+  font-size: 2rem;
+}
+
+.sideMenu ul {
+  margin-right: 5rem;
+  font-size: 1rem;
+}
+
+.recuar__menu {
+  margin-top: 10px;
+}
+
+.lista__menu-lateral {
+  font-size: 0.8rem;
+  width: 120%;
+  padding-right: 60px;
+}
+
+.lista__menu-lateral:hover {
+  background-color: var(--color05);
+}
+
+.recuar__menu {
+  cursor:pointer;
+}
+
+.burger {
+  position: relative;
+  margin-right: -10px;
+  z-index: 16;
+}
+
+.burger-pointer {
+  cursor: pointer;
+}
+
+.logo-cont {
+  height: 125px;
+}

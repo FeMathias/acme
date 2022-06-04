@@ -9,8 +9,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 60px;
-  margin-right: 60px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cards__container {
@@ -19,6 +19,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin: 0px auto;
 }
 
 .callout {
@@ -37,5 +38,39 @@ body {
   .cards, .cards__container {
     width: 1500px;
     margin: auto;
+  }
+}
+
+.loading {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 10px solid #ccc;
+  border-right-color: transparent;
+  animation: loading 1s infinite;
+}
+
+@keyframes loading {
+  to {
+  transform: rotate(360deg);}
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh + 30px);
+  margin: 0 auto;
+}
+
+.animeLeft {
+  transform: translateX(-200px);
+  opacity: 0;
+  animation: animeLeft .5s forwards;
+}
+
+@keyframes animeLeft {
+  to {
+    transform: initial;
+    opacity: initial;
   }
 }

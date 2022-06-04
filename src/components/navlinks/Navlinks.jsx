@@ -8,13 +8,13 @@ const NavLinks = () => {
     <nav className='NavLinks__container'>
       <ul className='NavLinks__container-links'>
         <li>
-          <a href="/">HOME</a>
+          <NavLink to='/' end>HOME</NavLink>
         </li>
         <li>
-          <a href="/">FAVORITOS</a>
+          <NavLink to='favoritos'>FAVORITOS</NavLink>
         </li>
         <li>
-          <a href="/">CARRINHO</a> 
+         <NavLink to='cart'>CARRINHO</NavLink>
         </li>
         <li>
           <a href='#Footer'>CONTATO</a>

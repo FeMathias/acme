@@ -1,8 +1,8 @@
 .footer__container {
   display: flex;
-  margin: 50px 60px 0px 60px;
+  margin: 50px 200px 0px 200px;
   justify-content: space-between;
-  text-align: start;
+  text-align: flex-start;
 }
 
 .footer__lists-caller {

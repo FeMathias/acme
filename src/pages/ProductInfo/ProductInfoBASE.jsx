@@ -5,9 +5,10 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Data from '../../Data'
 
 const ProductInfo = (props) => {
+  function addToCart() {
+    return console.log('Adicionado ao carrinho!')
+  }
   
-
-
   return (
     <div className='product__container'>
       <div className='product__img'>
@@ -20,8 +21,8 @@ const ProductInfo = (props) => {
         
         
         <h2>R${props.valor},00</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ipsa aspernatur veritatis fugiat velit. Laudantium consectetur excepturi veritatis totam, laboriosam voluptatibus amet placeat.</p>
-        <button>ADICIONE AO CARRINHO <AiOutlineShoppingCart size={25}/></button>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ipsa aspernatur veritatis fugiat velit. Laudantium consectetur excepturi veritatis totam, laboriosam voluptatibus amet placeat, illo quos cum omnis a fugit magnam.</p>
+        <button onClick={addToCart()}>ADICIONE AO CARRINHO <AiOutlineShoppingCart size={25}/></button>
       </div>
     </div>
   )

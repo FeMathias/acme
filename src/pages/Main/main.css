@@ -16,6 +16,10 @@
 
 .main__top-grid-left {
   background-color: var(--color05);
+  background-image: url(https://picsum.photos/500);
+  background-position: 50% 30%;
+  background-repeat: no-repeat;
+  background-size: 100%;
   width: 100%;
   height: 205%;
   cursor: pointer;
@@ -29,6 +33,11 @@
 
 .main__top-grid-right-upper {
   background-color: var(--color05);
+  background-image: url(https://picsum.photos/400);
+  background-position: 50% 30%;
+  background-size: 100%;
+  background-clip: border-box;
+  background-repeat: no-repeat;
   cursor: pointer;
   
   grid-column-start: 2;
@@ -40,6 +49,11 @@
 
 .main__top-grid-right-lower {
   background-color: var(--color05);
+  background-image: url(https://picsum.photos/450);
+  background-position: 50% 30%;
+  background-size: 100%;
+  background-clip: border-box;
+  background-repeat: no-repeat;
   cursor: pointer;
 
   grid-column-start: 2;
@@ -47,6 +61,10 @@
 
   grid-row-start: 2;
   grid-row-end: 2;
+}
+
+.main__top-grid-left:hover , .main__top-grid-right-lower:hover, .main__top-grid-right-upper:hover {
+  opacity: 0.7;
 }
 
 .main__top-grid-right-lower > img, .main__top-grid-right-upper > img {

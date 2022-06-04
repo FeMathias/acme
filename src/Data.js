@@ -33,10 +33,11 @@ function nome() {
   let rng = getRandomFromBucket()
   let firstName = Verbos[rng]
   let secondName = Adjetivos[rng]
-  return (
-    `${firstName} ${secondName}`
-  )
-}
+    if (firstName && secondName !== undefined ) {
+      return (`${firstName} ${secondName}`)} else {
+        return ('erro no nome')
+      }
+    }
 
 function arrayGen(i) {
   let nomeCompleto = nome()

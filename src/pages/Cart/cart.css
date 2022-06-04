@@ -23,6 +23,7 @@
 .cart__data-container {
   display: flex;
   justify-content: space-between;
+  max-width: 1100px;
   
   width: 100%;
 }
@@ -169,4 +170,15 @@ hr {
 .cart__checkout-button > button:hover {
   background-color: var(--color05);
   transition: 1s;
+}
+
+.goodbye {
+  height: 350px;
+  width: 80%;
+  background-image: url(../../assets/piggy.png);
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-color: var(--color04);
+  opacity: 0.9;
 }

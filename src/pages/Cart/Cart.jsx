@@ -76,6 +76,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      <div className='goodbye'></div>
     </div>
   )
 }
