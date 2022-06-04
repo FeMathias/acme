@@ -12,8 +12,8 @@ export default function Cards(props) {
           ? <span><AiFillStar onClick={() => setToggleStar(false)} /></span>
           : <span><AiOutlineStar onClick={() => setToggleStar(true)} /></span>}
       <div className='card__container-data'>
-        <h1>{props.firstName} {props.secondName}</h1>
-        <p>R${props.value},00</p>
+        <h1>{props.nomeCompleto}</h1>
+        <p>R${props.valor},00</p>
       </div>
       <div>
       </div>

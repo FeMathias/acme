@@ -1,16 +1,3 @@
-var bucket = [];
-
-for (var i=0;i<=50;i++) {
-    bucket.push(i);
-}
-
-function getRandomFromBucket() {
-   var randomIndex = Math.floor(Math.random()*bucket.length);
-   return bucket.splice(randomIndex, 1)[0];
-}
-
-console.log(getRandomFromBucket())
-
 const Verbos = ["Armário", "Navio", "Mala", "Base", "Hidroavião", "Revista", "Carretel", "Minissaia", "Tamborim",
 "Andador", "Geladeira", "Estátua", "Rolo", "Crachá", "Peneira", "Bafômetro", "Desentupidor",
 "Guarda-chuva", "Espanador", "Escudo", "Raquete", "Vaso sanitário", "Lancheira", "Cofre",
@@ -27,27 +14,60 @@ const Adjetivos = ["prepotente", "valioso", "legítimo", "desleixado", "Natural"
 "exigente", "nostálgico", "próspero", "compreensivo", "excelente", "estourado", "malvado",
 "windsurfista", "falso", "melhor", "terno"]
 
-const Data = [{
-  id: getRandomFromBucket(),
-  firstName: Verbos[getRandomFromBucket()],
-  secondName: Adjetivos[getRandomFromBucket()],
-  value: 10 + 2 * (500 - Adjetivos[getRandomFromBucket()].length)
-},{
-  id: getRandomFromBucket(),
-  firstName: Verbos[getRandomFromBucket()],
-  secondName: Adjetivos[getRandomFromBucket()],
-  value: 10 + 2 * (500 - Adjetivos[getRandomFromBucket()].length)
-},{
-  id: getRandomFromBucket(),
-  firstName: Verbos[getRandomFromBucket()],
-  secondName: Adjetivos[getRandomFromBucket()],
-  value: 10 + 2 * (500 - Adjetivos[getRandomFromBucket()].length)
-},{
-  id: getRandomFromBucket(),
-  firstName: Verbos[getRandomFromBucket()],
-  secondName: Adjetivos[getRandomFromBucket()],
-  value: 10 + 2 * (500 - Adjetivos[getRandomFromBucket()].length)
-},
-]
+var bucket = [];
 
-console.log(Data)
+for (var i=0;i<=49;i++) {
+    bucket.push(i);
+}
+
+function getRandomFromBucket() {
+   var randomIndex = Math.floor(Math.random()*bucket.length);
+   return bucket.splice(randomIndex, 1)[0];
+}
+
+//primeira array, sem valor
+let Data = [{}]
+
+
+function nome() {
+  let rng = getRandomFromBucket()
+  let firstName = Verbos[rng]
+  let secondName = Adjetivos[rng]
+  return (
+    `${firstName} ${secondName}`
+  )
+}
+
+function preco() {
+  return ( 
+    13
+    )
+}
+
+function arrayGen(i) {
+  let nomeCompleto = nome()
+  function preco() {
+    let nomeArray = nomeCompleto.split(/\s+/)
+    let nomeAdj = nomeArray[nomeArray.length]
+    const custo = 10 + +nomeArray.length * ((500 - +nomeArray.length) / (3 - +nomeArray.length) )
+    return ( custo )
+  }
+  return (
+    {
+      id: i,
+      nomeCompleto: nomeCompleto,
+      valor: preco(),
+      isFavorite: false,
+    }
+  )
+}
+
+const DataValor = [{}]
+
+//atribuidor de valor à array
+for (var i=1; i<=12; i++) {
+  let object = arrayGen(i)
+  DataValor.push(object)
+}
+
+console.log(DataValor)
