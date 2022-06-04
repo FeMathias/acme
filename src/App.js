@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header, Navbar, NavLinks, SearchBar, Cards, Footer } from './components'
-import { Main, ProductInfo, Cart } from './pages'
+import { Main, ProductInfo, Cart, Favoritos } from './pages'
 import Data from './Data'
 import DataPromo from './DataPromo'
+import Head from './Head';
 
 
 
@@ -52,6 +53,7 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
+        <Head title={`ACME | Home`} />
         <Navbar />
         <NavLinks />
         <Routes>
@@ -79,6 +81,14 @@ function App() {
           </>} />
           <Route path ='cart' element={<Cart />} />
           <Route path ='produto/:id' element={productSpecs}/>
+          <Route path = 'favoritos' element={<div className='cards'>
+            <div className='callout'>
+              <h1>FAVORITOS</h1> <br></br>
+              <hr></hr>
+            </div>
+            <div  className='cards__container'>
+            {ofcard}
+            </div></div>} />
         </Routes>
         <Footer />    
       </BrowserRouter>
