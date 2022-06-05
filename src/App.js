@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header, Navbar, NavLinks, SearchBar, Cards, Footer } from './components'
-import { Main, ProductInfo, Cart, Favoritos } from './pages'
+import { Main, ProductInfo, Cart, Favoritos, ProductInfoAlt } from './pages'
 import Data from './Data'
 import DataPromo from './DataPromo'
 import Head from './Head';
@@ -80,7 +80,7 @@ function App() {
           </div>
           </>} />
           <Route path ='cart' element={<Cart />} />
-          <Route path ='produto/:id' element={productSpecs}/>
+          <Route path ='produto/:id' element={<ProductInfoAlt />}/>
           <Route path = 'favoritos' element={<div className='cards'>
             <div className='callout'>
               <h1>FAVORITOS</h1> <br></br>
