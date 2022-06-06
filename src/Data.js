@@ -35,7 +35,7 @@ function nome() {
   let secondName = Adjetivos[rng]
     if (firstName && secondName !== undefined ) {
       return (`${firstName} ${secondName}`)} else {
-        return ('erro no nome')
+        return (`${Verbos[Math.floor(Math.random()* (50 - 1) + 1)]} ${Adjetivos[Math.floor(Math.random()* (49 - 1) + 1)]}`)
       }
     }
 
@@ -59,7 +59,7 @@ function arrayGen(i) {
 
 
 //atribuidor de valor à array
-for (var index = 1; index<=12; ++index) {
+for (var index = 1; index<=36; ++index) {
   let object = arrayGen(index + 1)
   Data.push(object)
 }

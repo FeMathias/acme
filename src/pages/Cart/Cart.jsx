@@ -1,9 +1,32 @@
-import React from 'react'
+import React, {useState, useContext} from 'react'
 import './cart.css'
 import {BsFillBagCheckFill, BsFillCartCheckFill} from 'react-icons/bs'
 import Head from '../../Head'
+import Data from '../../Data'
+import { NavLink } from 'react-router-dom'
+import { DataContext } from '../../DataContext'
+import { CartElement } from './CartElement'
+import { Contas } from './Contas'
+
 
 const Cart = () => {
+  const [cart, setCart] = useContext(DataContext)
+  function finalizarCompra() {
+    setCart([])
+  }
+
+  const cartElement = cart.map(item => {
+    return (
+      <CartElement 
+        key = {item.id}
+        id = {item.id}
+        nomeCompleto = {item.nome}
+        valor = {item.valor}
+     
+      />
+    )
+  })
+
   function addQtd() {
     return console.log('adicionou')
   }
@@ -11,31 +34,8 @@ const Cart = () => {
     return console.log('subtraiu')
   }
 
-  function itemTable() {
-    return (
-    <div className='cart__productOverview'>
-    <img src='https://picsum.photos/150' />
-    <div className='cart__productOverview-name'>
-      <h2>Nome do Produto</h2>
-      <h3>#id do prod</h3>
-    </div>
-    <div className='cart__productOverview-price'>
-      <h2>Preço</h2>
-      <h3>R$990,00</h3>
-    </div>
-    <div className='cart__productOverview-qtd'>
-      <h2>Quantidade</h2>
-      <div className='cart__productOverview-qtd-control'>
-        <h3>1</h3>
-        <button onClick={subQtd}>-</button>
-        <button onClick={addQtd}>+</button>
-      </div>
-    </div>
-    <div className='cart__productOverview-total'>
-      <h2>Total</h2>
-      <h2>R$990,00</h2>
-    </div>
-    </div>)
+  function finalizarCompra() {
+    return console.log(JSON.stringify.cart)
   }
 
   return (
@@ -48,16 +48,13 @@ const Cart = () => {
       <hr></hr>
       <div className='cart__data-container'>
         <div className='cart__left'>
-          {itemTable()}
-          {itemTable()}
-          {itemTable()}
-          {itemTable()}
-          {itemTable()}
+          {cartElement}
+
           <br></br>
           <hr></hr>
           <div className='cart__totalCalc'>
             <h1>Total</h1>
-            <h1>R$8.489,00</h1>
+            <h1>R$<Contas />,00</h1>
           </div>
         </div>
         <div className='cart__checkout'>
@@ -70,11 +67,11 @@ const Cart = () => {
           <hr></hr>
           <div className='cart__checkout-total'>
             <h1>Total</h1>
-            <h1>R$50000</h1>
+            <h1>R$<Contas />,00</h1>
           </div>
           <hr></hr>
           <div className='cart__checkout-button'>
-            <button><BsFillCartCheckFill size={25} /> CHECK OUT</button>
+            <NavLink  className='checkout' to='resultado'><button onClick={finalizarCompra}><BsFillCartCheckFill size={25} /> CHECK OUT</button></NavLink>
           </div>
         </div>
       </div>

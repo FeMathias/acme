@@ -17,6 +17,10 @@
   margin-left: -10px;
 }
 
+.footer__social {
+  margin-right: 40px;
+}
+
 .footer__social>span {
   height: 15px;
   width: 15px;

@@ -9,7 +9,7 @@ const SearchBar = () => {
     setSearchBar(event.target.value)
   }
 
-  console.log(searchBar, setSearchBar)
+  console.log(searchBar)
 
   return (
     <div className='searchbar__container'>

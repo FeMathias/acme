@@ -3,12 +3,13 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-top: 20px;
 }
 
 .NavLinks__container-links {
   display: flex;
   justify-content: center;
-  margin-left: -5.5rem;
+  margin-left: -4rem;
 }
 
 li {

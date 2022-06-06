@@ -1,30 +1,57 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { useParams } from 'react-router-dom'
 import './productinfo.css'
-import {AiOutlineStar, AiFillStar} from 'react-icons/ai'
+import {AiOutlineHeart, AiFillHeart, AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Data from '../../Data'
 import Head from '../../Head'
+import { DataContext } from '../../DataContext'
 
-const ProductInfo = (props) => {
-  function addToCart() {
-    return console.log(`Você adicionou o produto ${infos[id - 2].nomeCompleto} ao carrinho`)
-  }
+
+const ProductInfo = () => {
+  const [cart, setCart, favs, setFavs] = useContext(DataContext)
 
   const { id } = useParams()
   let infos = Data
-  console.log(infos[id])
 
-  
+  const [toggleStar, setToggleStar] = React.useState(false)
+
+  function addToCart() {
+    setCart( arr => [...arr, {
+      nome: infos[id-2].nomeCompleto,
+      valor: infos[id-2].valor,
+      id: infos[id-2].id
+    }])
+  }
+
+   function addFav() {
+    if (toggleStar === true) {
+      favs.push({
+        nome: infos[id-2].nomeCompleto,
+        valor: infos[id-2].valor,
+        id: infos[id-2].id
+      }) } else if (toggleStar === false) {
+      favs.splice(infos[id-2], 1)
+    }
+  }
+
+   console.log(favs)
+   console.log(cart)
+
   return (
     <div className='product__container'>
       <div className='product__img'>
+        <div className='heart__container' onClick={addFav}>
+          <div className='heart'> {toggleStar
+            ? <span><AiFillHeart size={45}onClick={() => setToggleStar(false)} /></span>
+            : <span><AiOutlineHeart size={45} onClick={() => setToggleStar(true)} /></span>}</div>    
+        </div>
         <img src={`https://picsum.photos/id/${infos[id - 2].id*12}/500/350`} alt='id'/>
       </div>
       <div className='product__info'>
         <Head title={`ACME | ${infos[id - 2].nomeCompleto}`} />
         <h1>{infos[id - 2].nomeCompleto}</h1>
-        <h3><AiFillStar size={15}/> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiOutlineStar size={15} /> <span> 462 avaliações</span></h3>
+        <h3><AiFillStar size={15}/> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiOutlineStar size={15} /> <span>{Math.floor(Math.random()*1000)} avaliações</span></h3>
         
         
         <h2>R${infos[id - 2].valor},00</h2>
