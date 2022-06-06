@@ -8,12 +8,12 @@ export function FavoritosC(props) {
 
   return (
     <div className='card__container'>
-      <NavLink to={`produto/${props.id}`} >
+      <NavLink to={`../produto/${props.id}`}>
       <img src={`https://picsum.photos/id/${props.id*12}/300/300`} alt='card' />
       </NavLink>
-      {toggleStar
+      {/* {toggleStar
           ? <span><AiFillStar onClick={() => setToggleStar(false)} /></span>
-          : <span><AiOutlineStar onClick={() => setToggleStar(true)} /></span>}
+          : <span><AiOutlineStar onClick={() => setToggleStar(true)} /></span>} */}
       <div className='card__container-data'>
         <h1>{props.nomeCompleto}</h1>
         <p>R${props.valor},00</p>

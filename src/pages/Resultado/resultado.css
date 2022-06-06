@@ -8,3 +8,17 @@
   text-align: center;
   margin: 50px 300px;
 }
+
+@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 480px) {
+  .resultado {
+    margin: 50px 10px;
+    font-size: 0.9rem;
+  }
+
+  .resultado>p {
+    width: 100%;
+    text-align: justify;
+  }
+}

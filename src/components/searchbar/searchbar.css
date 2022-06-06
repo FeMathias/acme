@@ -34,3 +34,17 @@
   background-color: var(--color06);
   transition: 0.5s;
 }
+
+/*pc tela pequena*/
+@media screen and (max-width: 1024px) {}
+
+/*tablets*/
+@media screen and (max-width: 768px) {}
+
+/*smartphones*/
+@media screen and (max-width: 480px) {
+  .searchbar__container {
+    width: 100%;
+    margin: 5px 0;
+  }
+}

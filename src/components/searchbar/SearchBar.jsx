@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './searchbar.css'
 import { BsSearch } from 'react-icons/bs'
+import { DataContext } from '../../DataContext'
+import Data from '../../Data'
 
 const SearchBar = () => {
-  const [searchBar, setSearchBar] = useState()
+  const [search, setSearch] = useState()
+  const [searchArray, setSearchArray] = useState([])
 
   function handleChange(event) {
-    setSearchBar(event.target.value)
+    setSearch(event.target.value)
   }
 
-  console.log(searchBar)
+  console.log(search)
 
   return (
     <div className='searchbar__container'>

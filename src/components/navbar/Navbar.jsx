@@ -9,6 +9,7 @@ import { RiMenuFoldFill } from 'react-icons/ri'
 import avatar from '../../assets/avatar.JPG'
 import { DataContext } from '../../DataContext'
 import { NavbarCartComponent } from './NavbarCartComponent'
+import {Contas} from '../../pages/Cart/Contas'
 
 const Navbar = () => {
   const [cart, setCart] = useContext(DataContext)
@@ -59,6 +60,7 @@ const Navbar = () => {
          {toggleCart && (
            <div className='navbar__cart-showItem scale-up-center'>
                 {navComponente}
+                <h3>Total..........R$<Contas />,00</h3>
               <NavLink to='cart' className='popup__checkout' onClick={() => setToggleCart(false)}>FINALIZAR COMPRA</NavLink>
            </div>
          )}

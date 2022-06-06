@@ -9,13 +9,11 @@ import { DataContext } from '../../DataContext'
 
 
 const ProductInfo = () => {
-  const [cart, setCart, favs, setFavs] = useContext(DataContext)
+  const [cart, setCart, favs, setFavs, toggleStar, setToggleStar] = useContext(DataContext)
 
   const { id } = useParams()
   let infos = Data
-
-  const [toggleStar, setToggleStar] = React.useState(false)
-
+  
   function addToCart() {
     setCart( arr => [...arr, {
       nome: infos[id-2].nomeCompleto,
@@ -23,15 +21,29 @@ const ProductInfo = () => {
       id: infos[id-2].id
     }])
   }
+  function setTog1() {
+    setToggleStar(false)
+  }
+  function setTog2() {
+    setToggleStar(true)
+  }
+   function addFav()  {
+     setFavs(arr => [...arr, {
+       nome: infos[id-2].nomeCompleto,
+       valor: infos[id-2].valor,
+       id: infos[id-2].id
+     }])
+    }
 
-   function addFav() {
-    if (toggleStar === true) {
-      favs.push({
+  function favManage() {
+    if(toggleStar = true)  {
+      setFavs(arr => [...arr, {
         nome: infos[id-2].nomeCompleto,
         valor: infos[id-2].valor,
         id: infos[id-2].id
-      }) } else if (toggleStar === false) {
-      favs.splice(infos[id-2], 1)
+      }])
+     } else if (toggleStar = false ) {
+      favs.splice(id - 2, 1)
     }
   }
 
@@ -43,8 +55,8 @@ const ProductInfo = () => {
       <div className='product__img'>
         <div className='heart__container' onClick={addFav}>
           <div className='heart'> {toggleStar
-            ? <span><AiFillHeart size={45}onClick={() => setToggleStar(false)} /></span>
-            : <span><AiOutlineHeart size={45} onClick={() => setToggleStar(true)} /></span>}</div>    
+            ? <span><AiFillHeart size={45} onChange={addFav} onClick={() => {setTog1(); favManage()}} /></span>
+            : <span><AiOutlineHeart size={45} onClick={() => {setTog2()}} /></span>}</div>    
         </div>
         <img src={`https://picsum.photos/id/${infos[id - 2].id*12}/500/350`} alt='id'/>
       </div>

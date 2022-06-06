@@ -74,3 +74,26 @@ body {
     opacity: initial;
   }
 }
+
+/*pc tela pequena*/
+@media screen and (max-width: 1024px) {}
+
+/*tablets*/
+@media screen and (max-width: 768px) {}
+
+/*smartphones*/
+@media screen and (max-width: 480px) {
+  .cards__container {
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    width: 90vw;
+    justify-content: start;
+    overflow-x: grab;
+    overflow-y: scroll;
+    max-height: 800px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  
+}

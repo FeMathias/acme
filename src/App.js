@@ -1,11 +1,13 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { Header, Navbar, NavLinks, SearchBar, Cards, Footer } from './components'
-import { Main, ProductInfo, Cart, Favoritos, ProductInfoAlt } from './pages'
+import { Main, Cart, Favoritos, ProductInfoAlt } from './pages'
 import Data from './Data'
 import Head from './Head';
 import { ProductProvider } from './DataContext';
 import {Resultado} from './pages/Resultado/Resultado'
+import { useState } from 'react';
+import {BsSearch} from 'react-icons/bs'
 
 
 
@@ -25,6 +27,14 @@ const ofcard = Data.map(item => {
 })
 
 function App() {
+  const [search, setSearch] = useState()
+  const [searchArray, setSearchArray] = useState([])
+
+  function handleChange(event) {
+    setSearch(event.target.value)
+  }
+
+  console.log(search)
 
   return (
     <ProductProvider>

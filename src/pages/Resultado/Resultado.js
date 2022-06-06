@@ -8,6 +8,8 @@ export const Resultado = () => {
 
 
   return (
-    <div className='resultado'>{JSON.stringify(result)}</div>
+    <div className='resultado'>
+      <p>{JSON.stringify(result)}</p>
+    </div>
   )
 }

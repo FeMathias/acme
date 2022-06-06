@@ -72,6 +72,19 @@
   height: 100%;
 }
 
+/*pc tela pequena*/
+@media screen and (max-width: 1024px) {}
+
+/*tablets*/
+@media screen and (max-width: 768px) {}
+
+/*smartphones*/
+@media screen and (max-width: 480px) {
+  .main__container{
+    display: none;
+  }
+}
+
 /* @media screen and (min-width: 1080px) {
   .main__container {
     margin: 10px 250px;

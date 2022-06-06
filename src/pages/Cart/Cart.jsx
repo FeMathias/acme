@@ -66,8 +66,7 @@ const Cart = () => {
           </div>
           <hr></hr>
           <div className='cart__checkout-total'>
-            <h1>Total</h1>
-            <h1>R$<Contas />,00</h1>
+            <h1>Total</h1><h1>R$<Contas />,00</h1>
           </div>
           <hr></hr>
           <div className='cart__checkout-button'>
