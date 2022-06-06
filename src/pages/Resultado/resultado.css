@@ -1,0 +1,10 @@
+.resultado {
+  padding: 80px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 50px auto;
+}
