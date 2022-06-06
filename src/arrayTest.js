@@ -1,29 +1,26 @@
-let arr = [
-  {id: 2, nomeCompleto: 'Raquete otário', valor: 998, isFavorite: false},
-  {id: 10, nomeCompleto: 'Hidroavião Natural', valor: 996, isFavorite: false},
-  {id: 3, nomeCompleto: 'Canga melhor', valor: 998, isFavorite: false},
-  {id: 3, nomeCompleto: 'Canga melhor', valor: 998, isFavorite: false},
-  {id: 3, nomeCompleto: 'Canga melhor', valor: 998, isFavorite: false},
-  {id: 4, nomeCompleto: 'Espanador injusto', valor: 996, isFavorite: false},
-  {id: 5, nomeCompleto: 'Moeda orgulhoso', valor: 992, isFavorite: false},
-  {id: 5, nomeCompleto: 'Moeda orgulhoso', valor: 992, isFavorite: false},
-  {id: 6, nomeCompleto: 'Helióstato zeloso', valor: 998, isFavorite: false},
-  {id: 7, nomeCompleto: 'Caneca feio', valor: 1002, isFavorite: false},
-  {id: 8, nomeCompleto: 'Sintetizador empenhado', valor: 992, isFavorite: false},
-  {id: 8, nomeCompleto: 'Sintetizador empenhado', valor: 992, isFavorite: false},
-  {id: 8, nomeCompleto: 'Sintetizador empenhado', valor: 992, isFavorite: false},
-  {id: 8, nomeCompleto: 'Sintetizador empenhado', valor: 992, isFavorite: false},
-  {id: 5, nomeCompleto: 'Moeda orgulhoso', valor: 992, isFavorite: false},
-  {id: 9, nomeCompleto: 'Foguete faceiro', valor: 996, isFavorite: false},
-  {id: 10, nomeCompleto: 'Hidroavião Natural', valor: 996, isFavorite: false},
-  {id: 11, nomeCompleto: 'Rolo horroroso', valor: 992, isFavorite: false},
-  {id: 12, nomeCompleto: 'Bucha inteligente', valor: 988, isFavorite: false},
+
+
+
+
+
+
+
+
+
+
+
+let soma = [
+  {nome: 'Vareta de freio windsurfista', value: -1942, id: 3, quantity: 1},
+  {nome: 'Maquete lutador', value: 996, id: 13, quantity: 1},
+  {nome: 'Interfone desejado', value: 994, id: 14, quantity: 3},
+  {nome: 'Foguete faceiro', value: 996, id: 29, quantity: 1},
 ]
 
-let sorted_arr = arr.slice().sort((a, b) => {
-  return a.id - b.id
+
+let total = 0
+
+soma.forEach (element => {
+  total += (element.value * element.quantity)
 })
 
-
-
-console.log(sorted_arr)
+console.log(total)

@@ -15,16 +15,28 @@ const Navbar = () => {
   const [cart, setCart] = useContext(DataContext)
   const [toggleCart, setToggleCart] = useState(false)
   const [sideMenu, setSideMenu] = useState(false)
+  let total = 0
+  cart.forEach (element => {
+    total += (element.value * element.quantity)
+  })
+
+  let quantidade = 0
+  cart.forEach (element => {
+    quantidade += element.quantity
+  })
 
   const navComponente = cart.map(item => {
     return (
       <NavbarCartComponent 
-        key = {item.id*10}
+        key = {item.id}
+        id = {item.id}
         nome = {item.nome}
-        valor = {item.valor}
+        valor = {item.value}
+        quantity = {item.quantity}
       />
     )
-  }) 
+  })
+
 
   return (
     <div className='navbar__container'>
@@ -53,14 +65,14 @@ const Navbar = () => {
       </div>
       <div className='logo-cont'><img src={logo} alt='logotipo' className='navbar__logo'/></div>
       <div className='navbar__cart'>
-        <span className='navbar__cart-itemNumber scale-up-center'>{cart.length}</span>
+        <span className='navbar__cart-itemNumber scale-up-center'>{quantidade}</span>
       {toggleCart
           ? <AiOutlineShoppingCart size={35} onClick={() => setToggleCart(false)} />
           : <AiOutlineShoppingCart size={35} onClick={() => setToggleCart(true)} />}
          {toggleCart && (
            <div className='navbar__cart-showItem scale-up-center'>
                 {navComponente}
-                <h3>Total..........R$<Contas />,00</h3>
+                <h3>Total..........R${total},00</h3>
               <NavLink to='cart' className='popup__checkout' onClick={() => setToggleCart(false)}>FINALIZAR COMPRA</NavLink>
            </div>
          )}

@@ -15,14 +15,19 @@ const Cart = () => {
     setCart([])
   }
 
+  let total = 0
+  cart.forEach (element => {
+    total += (element.value * element.quantity)
+  })
+
   const cartElement = cart.map(item => {
     return (
       <CartElement 
         key = {item.id}
         id = {item.id}
         nomeCompleto = {item.nome}
-        valor = {item.valor}
-     
+        valor = {item.value}
+        quantity = {item.quantity}
       />
     )
   })
@@ -54,7 +59,7 @@ const Cart = () => {
           <hr></hr>
           <div className='cart__totalCalc'>
             <h1>Total</h1>
-            <h1>R$<Contas />,00</h1>
+            <h1>R${total},00</h1>
           </div>
         </div>
         <div className='cart__checkout'>
@@ -66,7 +71,7 @@ const Cart = () => {
           </div>
           <hr></hr>
           <div className='cart__checkout-total'>
-            <h1>Total</h1><h1>R$<Contas />,00</h1>
+            <h1>Total</h1><h1>R${total},00</h1>
           </div>
           <hr></hr>
           <div className='cart__checkout-button'>

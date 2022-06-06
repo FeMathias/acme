@@ -9,54 +9,79 @@ import { DataContext } from '../../DataContext'
 
 
 const ProductInfo = () => {
-  const [cart, setCart, favs, setFavs, toggleStar, setToggleStar] = useContext(DataContext)
+  const [cart, setCart, favs, setFavs, sortedFavs] = useContext(DataContext)
+  const [toggleStar, setToggleStar] = React.useState(false)
 
   const { id } = useParams()
   let infos = Data
-  
+
   function addToCart() {
-    setCart( arr => [...arr, {
-      nome: infos[id-2].nomeCompleto,
-      valor: infos[id-2].valor,
-      id: infos[id-2].id
-    }])
+    const item = infos[id - 2]
+    setCart((arr) => {
+      const newCart = [...arr];
+      const existingItem = newCart.find((i) => i.id === item.id);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        newCart.push({
+          nome: infos[id-2].nomeCompleto,
+          value: infos[id-2].valor,
+          id: infos[id-2].id,
+          quantity: 1,
+        });
+      }
+      return newCart;
+    });
   }
+  
   function setTog1() {
     setToggleStar(false)
   }
   function setTog2() {
     setToggleStar(true)
   }
-   function addFav()  {
-     setFavs(arr => [...arr, {
-       nome: infos[id-2].nomeCompleto,
-       valor: infos[id-2].valor,
-       id: infos[id-2].id
-     }])
-    }
 
-  function favManage() {
-    if(toggleStar = true)  {
+  function favManage2() {
+    if (!favs.includes(infos[id -2].id)){
       setFavs(arr => [...arr, {
-        nome: infos[id-2].nomeCompleto,
-        valor: infos[id-2].valor,
-        id: infos[id-2].id
-      }])
-     } else if (toggleStar = false ) {
-      favs.splice(id - 2, 1)
-    }
+           nome: infos[id-2].nomeCompleto,
+           valor: infos[id-2].valor,
+           id: infos[id-2].id
+         }]) 
+     } else if (favs.includes(infos[id -2].id)) {
+        return (console.log('Já está nos favoritos'))
+     }
+  }
+
+  function addToFav() {
+    setFavs((arr) => {
+      const newFavs = [...arr];
+      const existingItem = newFavs.find((i) => i.id === infos[id-2].id);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        newFavs.push({
+          nome: infos[id-2].nomeCompleto,
+          value: infos[id-2].valor,
+          id: infos[id-2].id,
+          quantity: 1,
+        });
+      }
+      return newFavs;
+    });
   }
 
    console.log(favs)
    console.log(cart)
+   console.log(sortedFavs)
 
   return (
     <div className='product__container'>
       <div className='product__img'>
-        <div className='heart__container' onClick={addFav}>
+        <div className='heart__container'>
           <div className='heart'> {toggleStar
-            ? <span><AiFillHeart size={45} onChange={addFav} onClick={() => {setTog1(); favManage()}} /></span>
-            : <span><AiOutlineHeart size={45} onClick={() => {setTog2()}} /></span>}</div>    
+            ? <span><AiFillHeart size={45} onClick={() => {setTog1();}} /></span>
+            : <span><AiOutlineHeart size={45} onClick={() => {setTog2();  addToFav()}} /></span>}</div>    
         </div>
         <img src={`https://picsum.photos/id/${infos[id - 2].id*12}/500/350`} alt='id'/>
       </div>

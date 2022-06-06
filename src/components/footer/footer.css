@@ -43,7 +43,16 @@
 }
 
 /*pc tela pequena*/
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
+  .footer__container{
+    margin: 0px ;
+  }
+
+  .footer__social {
+    margin-right: 25px;
+
+  }
+}
 
 /*tablets*/
 @media screen and (max-width: 768px) {}

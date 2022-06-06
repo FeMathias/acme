@@ -10,7 +10,14 @@
 @media screen and (max-width: 1024px) {}
 
 /*tablets*/
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  .header__container {
+    height: 450px;
+    margin: 0 0;
+    background-size: 250%;
+    background-repeat: no-repeat;
+  }
+}
 
 /*smartphones*/
 @media screen and (max-width: 480px) {

@@ -53,6 +53,7 @@ function arrayGen(i) {
       nomeCompleto: nomeCompleto,
       valor: preco(),
       isFavorite: false,
+      quantidade: 1
     }
   )
 }

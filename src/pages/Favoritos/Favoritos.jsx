@@ -18,14 +18,14 @@ export default function Favoritos(props) {
         firstName = {item.firstName}
         secondName = {item.secondName}
         nomeCompleto = {item.nome}
-        valor = {item.valor}
+        valor = {item.value}
         favorite = {item.isFavorite}
       />
     )
   })
 
   return (
-    <div>{cartLine}</div>
+    <div className='cards__container'>{cartLine}</div>
   )
 }
 

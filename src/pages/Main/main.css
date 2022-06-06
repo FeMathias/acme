@@ -76,7 +76,11 @@
 @media screen and (max-width: 1024px) {}
 
 /*tablets*/
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+  .main__container{
+    display: none;
+  }
+}
 
 /*smartphones*/
 @media screen and (max-width: 480px) {
