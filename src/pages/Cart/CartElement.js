@@ -9,33 +9,36 @@ export const CartElement = (props) => {
   const { id } = useParams()
   let infos = Data
 
-  function addToCart() {
-    const item = infos[id - 2]
+  function cartAdd() {
     setCart((arr) => {
       const newCart = [...arr];
-      const existingItem = newCart.find((i) => i.id === item.id);
+      const existingItem = newCart.find((i) => i.id === props.id);
       if (existingItem) {
         existingItem.quantity++;
-      } else {
-        newCart.push({
-          nome: infos[id-2].nomeCompleto,
-          value: infos[id-2].valor,
-          id: infos[id-2].id,
-          quantity: 1,
-        });
       }
       return newCart;
     });
   }
 
-  let total = props.valor * props.quantity
+  function cartLess() {
+    setCart((arr) => {
+      const newCart = [...arr];
+      const existingItem = newCart.find((i) => i.id === props.id);
+      if (existingItem.quantity > 1) {
+        existingItem.quantity--;
+      } 
+      return newCart;
+    });
+  }
 
-  function addQtd() {
-    return console.log('adicionou')
+  const cartRemove = (index) => {
+    setCart([
+        ...cart.slice(0, index),
+        ...cart.slice(index+1)
+    ])
   }
-  function subQtd() {
-    return console.log('subtraiu')
-  }
+
+  let total = props.valor * props.quantity
 
   return (
   <div className='cart__productOverview'>
@@ -53,14 +56,17 @@ export const CartElement = (props) => {
         <h2>Quantidade</h2>
         <div className='cart__productOverview-qtd-control'>
           <h3>{props.quantity}</h3>
-          {/* <button onClick={subQtd}>-</button>
-          <button onClick={addQtd}>+</button> */}
+          <button onClick={cartLess}>-</button>
+          <button onClick={cartAdd}>+</button>
         </div>
       </div>
       <div className='cart__productOverview-total'>
         <h2>Total</h2>
         <h2>R${total},00</h2>
       </div>
+    </div>
+    <div className='delete__item' onClick={() => cartRemove(props.id-2)}>
+      X
     </div>
   </div>
 )}

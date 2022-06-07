@@ -7,9 +7,10 @@ export const DataContext = createContext();
 export const ProductProvider = (props) => {
   const [favs, setFavs] = useState([])
   const [cart, setCart] = useState([])
-  const [search, setSearch] = useState()
+  const [search, setSearch] = useState('')
   const [toggleStar, setToggleStar] = useState(false)
-  
+  let indexFavs = favs.indexOf(props.nomeCompleto)
+
   let total = 0
   cart.forEach (element => {
     total += (element.value * element.quantity)
@@ -21,7 +22,7 @@ export const ProductProvider = (props) => {
   })
 
   return (
-    <DataContext.Provider value={[favs, setFavs, cart, setCart, search, setSearch, toggleStar, setToggleStar, sortedFavs, total]}>
+    <DataContext.Provider value={[favs, setFavs, cart, setCart, search, setSearch, toggleStar, setToggleStar, sortedFavs, total, indexFavs]}>
       {props.children}
     </DataContext.Provider>
   )

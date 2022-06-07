@@ -1,0 +1,24 @@
+.close-capsule {
+  position: absolute;
+  display: flex;
+  width: 300px;
+  height: 300px;
+  justify-content: flex-end;
+}
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-weight: 800;
+  color: white;
+  background-color: var(--color04);
+  width: 30px;
+  height: 30px;
+  margin-left: 270px;
+}
+
+.close-button:hover {
+  background-color: var(--color05);
+}

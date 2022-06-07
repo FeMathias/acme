@@ -197,10 +197,23 @@ hr {
   opacity: 0.9;
 }
 
+.delete__item {
+  width: 30px;
+  height: 30px;
+  background-color: var(--color05);
+  color: white;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
 
 @media screen and (max-width: 1024px) {
   .goodbye {
     width: 100%;
+    margin-bottom: 00px;
   }
 }
 @media screen and (max-width: 900px) {
@@ -214,7 +227,8 @@ hr {
     align-items: flex-start;
   }
   .cart__productOverview-qtd-control > button{
-    display: none;
+    display: flex;
+    flex-direction: row;
   }
 
   .cart__productOverview-qtd-control > h3 {

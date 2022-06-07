@@ -41,16 +41,12 @@ const ProductInfo = () => {
     setToggleStar(true)
   }
 
-  function favManage2() {
-    if (!favs.includes(infos[id -2].id)){
-      setFavs(arr => [...arr, {
-           nome: infos[id-2].nomeCompleto,
-           valor: infos[id-2].valor,
-           id: infos[id-2].id
-         }]) 
-     } else if (favs.includes(infos[id -2].id)) {
-        return (console.log('Já está nos favoritos'))
-     }
+  const removeFav = (index) => {
+    setFavs([
+        ...favs.slice(0, index),
+        ...favs.slice(index+1)
+    ])
+    console.log(`Você removeu ${infos[id-2].nomeCompleto} dos favoritos. Veja o resto dos favoritos:`, favs)
   }
 
   function addToFav() {
@@ -58,7 +54,7 @@ const ProductInfo = () => {
       const newFavs = [...arr];
       const existingItem = newFavs.find((i) => i.id === infos[id-2].id);
       if (existingItem) {
-        existingItem.quantity++;
+        console.log('Este item já está nos favoritos');
       } else {
         newFavs.push({
           nome: infos[id-2].nomeCompleto,
@@ -69,14 +65,14 @@ const ProductInfo = () => {
       }
       return newFavs;
     });
-  }
-
+  } 
    console.log(favs)
    console.log(cart)
    console.log(sortedFavs)
 
   return (
     <div className='product__container'>
+
       <div className='product__img'>
         <div className='heart__container'>
           <div className='heart'> {toggleStar

@@ -1,13 +1,15 @@
 import React, {useState, useContext} from 'react'
 import { AiOutlineStar, AiFillStar} from 'react-icons/ai'
 import './favoritos.css'
-import { NavLink } from 'react-router-dom'
+import { createSearchParams, NavLink } from 'react-router-dom'
 import {FavoritosC} from './FavoritosC'
 import { DataContext } from '../../DataContext'
+import Head from '../../Head'
 
 export default function Favoritos(props) {
   const [toggleStar, setToggleStar] = useState(false)
   const [cart, setCart, favs, setFavs] = useContext(DataContext)
+  
 
   const cartLine = favs.map(item => {
     return (
@@ -24,8 +26,12 @@ export default function Favoritos(props) {
     )
   })
 
+  if (favs.length > 0)
   return (
-    <div className='cards__container'>{cartLine}</div>
-  )
+    <div className='cards__container'>
+      <Head title={`ACME | Favoritos`} />
+      {cartLine}
+      </div>
+  ) 
 }
 

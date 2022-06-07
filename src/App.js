@@ -1,15 +1,12 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { Header, Navbar, NavLinks, SearchBar, Cards, Footer } from './components'
+import { Header, Navbar, NavLinks, SearchBar, Cards, Footer} from './components'
 import { Main, Cart, Favoritos, ProductInfoAlt } from './pages'
 import Data from './Data'
 import Head from './Head';
 import { ProductProvider } from './DataContext';
 import {Resultado} from './pages/Resultado/Resultado'
 import { useState } from 'react';
-import {BsSearch} from 'react-icons/bs'
-
-
 
 const ofcard = Data.map(item => {
   return (
@@ -27,14 +24,7 @@ const ofcard = Data.map(item => {
 })
 
 function App() {
-  const [search, setSearch] = useState()
-  const [searchArray, setSearchArray] = useState([])
-
-  function handleChange(event) {
-    setSearch(event.target.value)
-  }
-
-  console.log(search)
+  const [search, setSearch] = useState([])
 
   return (
     <ProductProvider>
@@ -48,7 +38,7 @@ function App() {
             <>
             <Header />
             {/* SEARCHBAR */}
-            <SearchBar />
+            <SearchBar search={search} />
             <Main />
             <div className='cards'>
               <div className='callout'>
