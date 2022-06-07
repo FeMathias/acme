@@ -23,8 +23,8 @@ export default function Cards(props) {
   function addToFav2() {
     setFavs((arr) => {
       const newFavs = [...arr];
-      const existingItem = newFavs.find((i) => i.id === props.id);
-      if (existingItem) {
+      const existingIndex = newFavs.find((i) => i.id === props.id);
+      if (existingIndex) {
         console.log('Este item já está nos favoritos');
       } else {
         newFavs.push({
@@ -47,7 +47,7 @@ export default function Cards(props) {
       </NavLink>
       {toggleStar
           ? <span><AiFillHeart size={35} onClick={() =>{setTog1();}} /></span>
-          : <span><AiOutlineHeart size={35} onClick={() =>{setTog2(); addToFav2()}} /></span>}
+          : <span><AiOutlineHeart size={35} onClick={() =>{setTog2();}} /></span>}
       <div className='card__container-data'>
         <h1>{props.nomeCompleto}</h1>
         <p>R${props.valor},00</p>
