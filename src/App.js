@@ -37,9 +37,8 @@ function App() {
             <Route path='' element={
             <>
             <Header />
-            {/* SEARCHBAR */}
-            <SearchBar search={search} />
             <Main />
+            <SearchBar search={search} />
             <div className='cards'>
               <div className='callout'>
                 <h1>NOSSOS PRODUTOS</h1> <br></br>

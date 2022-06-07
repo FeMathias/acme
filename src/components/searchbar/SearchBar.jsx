@@ -13,7 +13,13 @@ const SearchBar = () => {
     setSearch(event.target.value)
   }
 
-  console.log(search)
+  function filterByName(obj) {
+    if (search in obj ){
+    return (true)} else {
+      console.log('não se encontra')}
+}
+
+  
 
   return (
     <div className='searchbar__container'>
