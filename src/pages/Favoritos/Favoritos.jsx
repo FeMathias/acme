@@ -26,7 +26,6 @@ export default function Favoritos(props) {
     )
   })
 
-  if (favs.length > 0)
   return (
     <div className='cards__container'>
       <Head title={`ACME | Favoritos`} />

@@ -1,31 +1,21 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { Header, Navbar, NavLinks, SearchBar, Cards, Footer} from './components'
+import { Header, Navbar, NavLinks, SearchBar, Cards, CardSection, Footer} from './components'
 import { Main, Cart, Favoritos, ProductInfoAlt } from './pages'
 import Data from './Data'
 import Head from './Head';
 import { ProductProvider } from './DataContext';
 import {Resultado} from './pages/Resultado/Resultado'
+import { BsSearch } from 'react-icons/bs'
 import { useState } from 'react';
 
-const ofcard = Data.map(item => {
-  return (
-    <Cards 
-      key = {item.id}
-      id = {item.id}
-      img = {item.img}
-      firstName = {item.firstName}
-      secondName = {item.secondName}
-      nomeCompleto = {item.nomeCompleto}
-      valor = {item.valor}
-      favorite = {item.isFavorite}
-    />
-  )
-})
 
 function App() {
   const [search, setSearch] = useState([])
-
+  function handleChange(event) {
+    setSearch(event.target.value)
+  }
+console.log(search)
   return (
     <ProductProvider>
       <div className='App'>
@@ -38,16 +28,11 @@ function App() {
             <>
             <Header />
             <Main />
-            <SearchBar search={search} />
-            <div className='cards'>
-              <div className='callout'>
-                <h1>NOSSOS PRODUTOS</h1> <br></br>
-                <hr></hr>
-              </div>
-              <div  className='cards__container'>
-              {ofcard}
-              </div>
+             <div className='searchbar__container'>
+              <input type='text' name='searchBar' className='searchbar__input' placeholder='Encontre o seu produto ACME!' onChange={handleChange}/>
+              <button className='searchbar__button'> <BsSearch /></button>
             </div>
+            <CardSection />
             </>} />
             <Route path ='cart' element={<Cart />} />
             <Route path ='produto/:id' element={<ProductInfoAlt />}/>
