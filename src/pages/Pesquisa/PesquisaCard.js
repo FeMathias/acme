@@ -9,7 +9,6 @@ import { DataContext } from '../../DataContext'
 
 export default function Cards(props) {
   const [toggleStar, setToggleStar] = useState(false)
-  const [favs, setFavs] = useContext(DataContext)
   const { id } = useParams()
 
   // function setTog1() {

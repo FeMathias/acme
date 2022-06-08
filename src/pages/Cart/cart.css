@@ -55,9 +55,9 @@ hr {
   margin-right: 3rem;
 }
 
-.cart__productOverview > img {
-  height: 50px;
-  width: 50px;
+.img-cart-ov  {
+  height: 100px;
+  width: 100px;
   margin-right: 10px;
 }
 
@@ -251,7 +251,7 @@ hr {
     width: 100%;
   }
 
-  .cart__productOverview > img {
+  .img-cart-ov {
     width: 250px;
     height: 250px;
     object-fit: cover;
@@ -312,7 +312,7 @@ hr {
     width: 100%;
   }
 
-  .cart__productOverview > img {
+  .img-cart-ov {
     width: 120px;
     height: 220px;
     object-fit: cover;

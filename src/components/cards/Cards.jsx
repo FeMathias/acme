@@ -8,7 +8,10 @@ import { DataContext } from '../../DataContext'
 
 export default function Cards(props) {
   const [toggleStar, setToggleStar] = useState(false)
-  const [favs, setFavs] = useContext(DataContext)
+  
+  const {favoritos, carrinho} = useContext(DataContext);
+  const [favs, setFavs] = favoritos;
+  const [cart, setCart] = carrinho;
 
   
 

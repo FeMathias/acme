@@ -9,8 +9,9 @@ import { DataContext } from '../../DataContext'
 
 
 const ProductInfo = (props) => {
-  const [cart, setCart] = useContext(DataContext)
-  const [favs, setFavs] = useContext(DataContext)
+  const {favoritos, carrinho} = useContext(DataContext);
+  const [favs, setFavs] = favoritos;
+  const [cart, setCart] = carrinho;
   const [toggleStar, setToggleStar] = React.useState(false)
 
   const { id } = useParams()
@@ -45,15 +46,13 @@ const ProductInfo = (props) => {
     setToggleStar(true)
   }
 
-  const removeFav = (i) => {
-    setFavs([
-        ...favs.splice(i, 1),
-    ])
+  function deleteTask(pos) {
+    setFavs(oldArray => oldArray.filter((item, index) => index !== pos));
   }
 
   function addToFav() {
-    setFavs((arr) => {
-      const newFavs = [...arr];
+    setFavs((arrb) => {
+      const newFavs = [...arrb];
       const existingItem = newFavs.find((i) => i.id === infos[id-2].id);
       if (existingItem) {
         console.log('Este item já está nos favoritos');
@@ -78,7 +77,7 @@ const ProductInfo = (props) => {
       <div className='product__img'>
         <div className='heart__container'>
           <div className='heart'> {toggleStar
-            ? <span><AiFillHeart size={45} onClick={() => {setTog1(); removeFav(props.index)}} /></span>
+            ? <span><AiFillHeart size={45} onClick={() => {setTog1(); deleteTask(props.index)}} /></span>
             : <span><AiOutlineHeart size={45} onClick={() => {setTog2();  addToFav()}} /></span>}</div>    
         </div>
         <img src={`https://picsum.photos/id/${infos[id - 2].id*12}/500/350`} alt='id'/>

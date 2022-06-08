@@ -2,10 +2,12 @@ import React, {useState, useContext, useEffect} from 'react'
 import './cart.css'
 import { DataContext } from '../../DataContext'
 import Data from '../../Data'
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 
 export const CartElement = (props) => {
-  const [cart, setCart, sortCart, setSortCart] = useContext(DataContext)
+  const {favoritos, carrinho} = useContext(DataContext);
+  const [favs, setFavs] = favoritos;
+  const [cart, setCart] = carrinho;
   const { id } = useParams()
   let infos = Data
 
@@ -33,19 +35,19 @@ export const CartElement = (props) => {
     });
   }
   
+    function deleteTask(pos) {
+      setCart(oldArray => oldArray.filter((item, index) => index !== pos));
+    }
 
-
-  const cartRemove = (i) => {
-    setCart([
-        ...cart.splice(i, 1)
-    ])
-  }
+    const cartRemove = (i) => {
+      setCart()
+    }
   
   let total = props.valor * props.quantity
 
   return (
   <div className='cart__productOverview'>
-    <img src={`https://picsum.photos/id/${props.id*12}/300/300`} alt='produto'/>
+    <NavLink to={`../produto/${props.id}`}><img className='img-cart-ov' src={`https://picsum.photos/id/${props.id*12}/300/300`} alt='produto'/></NavLink>
     <div className='cart__prouctOverview-general'>
       <div className='cart__productOverview-name'>
         <h2>{props.nomeCompleto}</h2>
@@ -68,7 +70,7 @@ export const CartElement = (props) => {
         <h2>R${total},00</h2>
       </div>
     </div>
-    <div className='delete__item' onClick={() => {cartRemove(props.index+1)}}>
+    <div className='delete__item' onClick={() => {deleteTask(props.index)}}>
       X
     </div>
   </div>

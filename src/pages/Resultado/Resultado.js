@@ -3,7 +3,9 @@ import { DataContext } from '../../DataContext'
 import './resultado.css'
 
 export const Resultado = () => {
-  const [cart, setCart] = useContext(DataContext)
+  const {favoritos, carrinho} = useContext(DataContext);
+  const [favs, setFavs] = favoritos;
+  const [cart, setCart] = carrinho;
   let result = cart
 
 

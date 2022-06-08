@@ -9,7 +9,7 @@ import {Resultado} from './pages/Resultado/Resultado'
 import { BsSearch } from 'react-icons/bs'
 import { useEffect, useState } from 'react';
 import {MdOutlineArrowBackIosNew} from 'react-icons/md'
-import ScrollToTop from "./ScrollToTop";
+import ScrollToTop from "./scrollTop";
 
 
 

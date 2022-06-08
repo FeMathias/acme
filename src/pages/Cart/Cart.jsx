@@ -10,7 +10,9 @@ import { Contas } from './Contas'
 
 
 const Cart = () => {
-  const [cart, setCart] = useContext(DataContext)
+  const {favoritos, carrinho} = useContext(DataContext);
+  const [favs, setFavs] = favoritos;
+  const [cart, setCart] = carrinho;
   function finalizarCompra() {
     setCart([])
   }

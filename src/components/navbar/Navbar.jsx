@@ -12,7 +12,8 @@ import { NavbarCartComponent } from './NavbarCartComponent'
 import {Contas} from '../../pages/Cart/Contas'
 
 const Navbar = () => {
-  const [cart, setCart] = useContext(DataContext)
+  const {favoritos, carrinho} = useContext(DataContext);
+  const [cart, setCart] = carrinho;
   const [toggleCart, setToggleCart] = useState(false)
   const [sideMenu, setSideMenu] = useState(false)
   let total = 0

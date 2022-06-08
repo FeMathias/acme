@@ -6,19 +6,18 @@ import { DataContext } from '../../DataContext'
 import Data from '../../Data'
 
 export function FavoritosC(props) {
-  const [favs, setFavs] = useContext(DataContext)
+  const {favoritos, carrinho} = useContext(DataContext);
+  const [favs, setFavs] = favoritos;
+  const [cart, setCart] = carrinho;
 
-  const removeFav = (i) => {
-    console.log(`Você está tentando retirar o item ${props.index}, de nome "${props.nomeCompleto}" da array`, favs)
-    setFavs([
-        ...favs.splice(i, 1),
-    ])
+  function deleteTask(pos) {
+    setFavs(oldArray => oldArray.filter((item, index) => index !== pos));
   }
 
   return (
     <div className='card__container'>
      
-        <div className='close-button' onClick={() => removeFav(props.index+1)}>X</div>
+        <div className='close-button' onClick={() => deleteTask(props.index)}>X</div>
 
       <NavLink to={`../produto/${props.id}`}>
       <img src={`https://picsum.photos/id/${props.id*12}/300/300`} alt='card' />
