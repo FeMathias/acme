@@ -13,7 +13,7 @@
 
 .searchbar__input {
   background-color: var(--color04);
-  width: 30%;
+  width: 500px;
   height: 50px;
   border: none;
   outline: none;
@@ -35,6 +35,13 @@
   transition: 0.5s;
 }
 
+.search__form {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /*pc tela pequena*/

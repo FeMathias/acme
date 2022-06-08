@@ -1,11 +1,11 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import './cart.css'
 import { DataContext } from '../../DataContext'
 import Data from '../../Data'
 import { useParams } from 'react-router-dom'
 
 export const CartElement = (props) => {
-  const [cart, setCart] = useContext(DataContext)
+  const [cart, setCart, sortCart, setSortCart] = useContext(DataContext)
   const { id } = useParams()
   let infos = Data
 
@@ -16,7 +16,9 @@ export const CartElement = (props) => {
       if (existingItem) {
         existingItem.quantity++;
       }
-      return newCart;
+      return newCart.sort((a, b) => {
+        return a.key - b.key
+      });
     });
   }
 
@@ -30,14 +32,15 @@ export const CartElement = (props) => {
       return newCart;
     });
   }
+  
 
-  const cartRemove = (index) => {
+
+  const cartRemove = (i) => {
     setCart([
-        ...cart.slice(0, index),
-        ...cart.slice(index+1)
+        ...cart.splice(i, 1)
     ])
   }
-
+  
   let total = props.valor * props.quantity
 
   return (
@@ -65,7 +68,7 @@ export const CartElement = (props) => {
         <h2>R${total},00</h2>
       </div>
     </div>
-    <div className='delete__item' onClick={() => cartRemove(props.id-2)}>
+    <div className='delete__item' onClick={() => {cartRemove(props.index+1)}}>
       X
     </div>
   </div>

@@ -10,3 +10,5 @@ const Head = (props) => {
 }
 
 export default Head
+
+//code para gerenciar SEO

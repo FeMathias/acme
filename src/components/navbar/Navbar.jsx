@@ -25,7 +25,7 @@ const Navbar = () => {
     quantidade += element.quantity
   })
 
-  const navComponente = cart.map(item => {
+  const navComponente = cart.map((item, index) => {
     return (
       <NavbarCartComponent 
         key = {item.id}
@@ -33,6 +33,7 @@ const Navbar = () => {
         nome = {item.nome}
         valor = {item.value}
         quantity = {item.quantity}
+        index = {index}
       />
     )
   })

@@ -8,10 +8,10 @@ import Head from '../../Head'
 
 export default function Favoritos(props) {
   const [toggleStar, setToggleStar] = useState(false)
-  const [cart, setCart, favs, setFavs] = useContext(DataContext)
+  const [favs, setFavs] = useContext(DataContext)
   
 
-  const cartLine = favs.map(item => {
+  const cartLine = favs.map((item, index) => {
     return (
       <FavoritosC 
         key = {item.id}
@@ -22,6 +22,7 @@ export default function Favoritos(props) {
         nomeCompleto = {item.nome}
         valor = {item.value}
         favorite = {item.isFavorite}
+        index = {index}
       />
     )
   })

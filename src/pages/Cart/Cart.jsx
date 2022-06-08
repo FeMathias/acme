@@ -20,7 +20,7 @@ const Cart = () => {
     total += (element.value * element.quantity)
   })
 
-  const cartElement = cart.map(item => {
+  const cartElement = cart.map((item, index) => {
     return (
       <CartElement 
         key = {item.id}
@@ -28,6 +28,7 @@ const Cart = () => {
         nomeCompleto = {item.nome}
         valor = {item.value}
         quantity = {item.quantity}
+        index = {index}
       />
     )
   })

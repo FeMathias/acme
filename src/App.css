@@ -62,11 +62,18 @@ body {
   margin: 0 auto;
 }
 
+.form {
+  display: flex;
+  width: 800px;
+}
+
 .animeLeft {
   transform: translateX(-200px);
   opacity: 0;
   animation: animeLeft .5s forwards;
 }
+
+
 
 @keyframes animeLeft {
   to {

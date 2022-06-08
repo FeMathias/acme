@@ -9,7 +9,7 @@ export const ProductProvider = (props) => {
   const [cart, setCart] = useState([])
   const [search, setSearch] = useState('')
   const [toggleHeart, setToggleHeart] = useState(false)
-  let indexFavs = favs.indexOf(props.nomeCompleto)
+  const [sortCart, setSortCart] = useState('key')
 
   let total = 0
   cart.forEach (element => {
@@ -22,7 +22,7 @@ export const ProductProvider = (props) => {
   })
 
   return (
-    <DataContext.Provider value={[favs, setFavs, cart, setCart, search, setSearch, toggleHeart, setToggleHeart, sortedFavs, total, indexFavs]}>
+    <DataContext.Provider value={[favs, setFavs, cart, setCart, search, setSearch, toggleHeart, setToggleHeart, sortedFavs, total, sortCart, setSortCart]}>
       {props.children}
     </DataContext.Provider>
   )

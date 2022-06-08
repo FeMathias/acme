@@ -1,23 +1,22 @@
 import React, {useContext} from 'react'
 import { useParams } from 'react-router-dom'
-import './productinfo.css'
+
 import {AiOutlineHeart, AiFillHeart, AiFillStar, AiOutlineStar} from 'react-icons/ai'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Data from '../../Data'
 import Head from '../../Head'
 import { DataContext } from '../../DataContext'
 
-
-const ProductInfo = (props) => {
+const Produto = (props) => {
   const [cart, setCart] = useContext(DataContext)
   const [favs, setFavs] = useContext(DataContext)
   const [toggleStar, setToggleStar] = React.useState(false)
 
   const { id } = useParams()
-  let infos = Data
+
 
   function addToCart() {
-    const item = infos[id - 2]
+    const item = props[id - 2]
     setCart((arr) => {
       const newCart = [...arr];
       const existingItem = newCart.find((i) => i.id === item.id);
@@ -25,11 +24,11 @@ const ProductInfo = (props) => {
         existingItem.quantity++;
       } else {
         newCart.push({
-          nome: infos[id-2].nomeCompleto,
-          value: infos[id-2].valor,
-          id: infos[id-2].id,
+          nome: props.nomeCompleto,
+          value: props.valor,
+          id: props.id,
           quantity: 1,
-          key: infos[id-2].key
+          key: props.key
         });
       }
       return newCart.sort((a, b) => {
@@ -45,51 +44,52 @@ const ProductInfo = (props) => {
     setToggleStar(true)
   }
 
-  const removeFav = (i) => {
-    setFavs([
-        ...favs.splice(i, 1),
-    ])
+  function addToFav2() {
+    const newFavs = [...favs]
+    const existingItem = newFavs.find((i) => i.id === props.id);
+    if(existingItem) {
+      setFavs((arr) => {
+        
+      })
+    }
   }
 
   function addToFav() {
     setFavs((arr) => {
       const newFavs = [...arr];
-      const existingItem = newFavs.find((i) => i.id === infos[id-2].id);
+      const existingItem = newFavs.find((i) => i.id === props.id);
       if (existingItem) {
         console.log('Este item já está nos favoritos');
       } else {
         newFavs.push({
-          nome: infos[id-2].nomeCompleto,
-          value: infos[id-2].valor,
-          id: infos[id-2].id,
+          nome: props.nomeCompleto,
+          value: props.valor,
+          id: props.id,
           quantity: 1,
-          key: infos[id-2].key
+          key: props.key
         });
       }
       return newFavs;
     });
   } 
-   console.log(favs)
-   console.log(cart)
 
   return (
     <div className='product__container'>
-
       <div className='product__img'>
         <div className='heart__container'>
           <div className='heart'> {toggleStar
-            ? <span><AiFillHeart size={45} onClick={() => {setTog1(); removeFav(props.index)}} /></span>
+            ? <span><AiFillHeart size={45} onClick={() => {setTog1(); }} /></span>
             : <span><AiOutlineHeart size={45} onClick={() => {setTog2();  addToFav()}} /></span>}</div>    
         </div>
-        <img src={`https://picsum.photos/id/${infos[id - 2].id*12}/500/350`} alt='id'/>
+        <img src={`https://picsum.photos/id/${props.id*12}/500/350`} alt='id'/>
       </div>
       <div className='product__info'>
-        <Head title={`ACME | ${infos[id - 2].nomeCompleto}`} />
-        <h1>{infos[id - 2].nomeCompleto}</h1>
+        <Head title={`ACME | ${props.nomeCompleto}`} />
+        <h1>{props.nomeCompleto}</h1>
         <h3><AiFillStar size={15}/> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiFillStar size={15} /> <AiOutlineStar size={15} /> <span>{Math.floor(Math.random()*1000)} avaliações</span></h3>
         
         
-        <h2>R${infos[id - 2].valor},00</h2>
+        <h2>R${props.valor},00</h2>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ipsa aspernatur veritatis fugiat velit. Laudantium consectetur excepturi veritatis totam, laboriosam voluptatibus amet placeat.</p>
         <button onClick={addToCart}>ADICIONE AO CARRINHO <AiOutlineShoppingCart size={25}/></button>
       </div>
@@ -97,4 +97,4 @@ const ProductInfo = (props) => {
   )
 }
 
-export default ProductInfo
+export default Produto

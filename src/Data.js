@@ -14,6 +14,7 @@ const Adjetivos = ["prepotente", "valioso", "legítimo", "desleixado", "Natural"
 "exigente", "nostálgico", "próspero", "compreensivo", "excelente", "estourado", "malvado",
 "windsurfista", "falso", "melhor", "terno"]
 
+//repositório de números aleatórios
 var bucket = [];
 
 for (var i=0;i<=49;i++) {
@@ -28,7 +29,7 @@ function getRandomFromBucket() {
 //primeira array, sem valor
 let Data = []
 
-
+//gerador de nome aleatório
 function nome() {
   let rng = getRandomFromBucket()
   let firstName = Verbos[rng]
@@ -39,6 +40,7 @@ function nome() {
       }
     }
 
+//criadora da array
 function arrayGen(i) {
   let nomeCompleto = nome()
   function preco() {
@@ -53,7 +55,8 @@ function arrayGen(i) {
       nomeCompleto: nomeCompleto,
       valor: preco(),
       isFavorite: false,
-      quantidade: 1
+      quantidade: 1,
+      key: i - 1
     }
   )
 }

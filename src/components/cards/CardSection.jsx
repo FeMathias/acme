@@ -4,13 +4,14 @@ import Cards from './Cards'
 
 const CardSection = () => {
 
-  const ofcard = Data.map(item => {
+  const ofcard = Data.map((item, index) => {
     return (
       <Cards 
         key = {item.id}
         id = {item.id}
         nomeCompleto = {item.nomeCompleto}
         valor = {item.valor}
+        index = {index}
       />
     )
   })
