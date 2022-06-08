@@ -8,21 +8,25 @@
   display: grid;
   grid-template-columns: 2;
   grid-template-rows: 2;
+  column-width: 50%;
   gap: 10px;
 
-  height: 450px;
+  height: 500px;
   width: 100%;
 }
 
 .main__top-grid-left {
   background-color: var(--color05);
-  background-image: url(https://picsum.photos/500);
+  background-image: url(../../assets/bigorna.jpg);
   background-position: 50% 30%;
   background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
+  background-size: 900px;
+  max-width: 50vw;
   height: 205%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   grid-column-start: 1;
   grid-column-end: 1;
@@ -31,14 +35,30 @@
   grid-row-end: 2;
 }
 
+.main__top-grid-left > p, .main__top-grid-right-upper>p, .main__top-grid-right-lower>p  {
+  background-color: var(--color05);
+  padding: 10px;
+  color: white;
+  font-family: var(--font-medium);
+  font-weight: 600;
+  font-size: 2rem;
+  opacity: 0.8;
+  max-width: 60%;
+  text-align: center;
+}
+
 .main__top-grid-right-upper {
   background-color: var(--color05);
-  background-image: url(https://picsum.photos/400);
+  background-image: url(../../assets/acme-store.webp);
   background-position: 50% 30%;
   background-size: 100%;
   background-clip: border-box;
   background-repeat: no-repeat;
   cursor: pointer;
+  max-width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   grid-column-start: 2;
   grid-column-end: 2;
@@ -49,12 +69,16 @@
 
 .main__top-grid-right-lower {
   background-color: var(--color05);
-  background-image: url(https://picsum.photos/450);
+  background-image: url(../../assets/acme-rocket.jfif);
   background-position: 50% 30%;
   background-size: 100%;
   background-clip: border-box;
   background-repeat: no-repeat;
   cursor: pointer;
+  max-width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   grid-column-start: 2;
   grid-column-end: 2;
@@ -76,7 +100,7 @@
 @media screen and (max-width: 1024px) {}
 
 /*tablets*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 940px) {
   .main__container{
     display: none;
   }
