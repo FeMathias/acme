@@ -53,7 +53,13 @@
 /*smartphones*/
 @media screen and (max-width: 480px) {
   .searchbar__container {
-    width: 100%;
-    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin: 5px auto;
+  }
+  .searchbar__input {
+    width: 300px;
   }
 }

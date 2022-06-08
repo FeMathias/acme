@@ -1,4 +1,7 @@
 .resultado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 80px;
   border-style: solid;
   border-color: black;
@@ -9,16 +12,23 @@
   margin: 50px 300px;
 }
 
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1024px) {
+  .resultado {
+    margin: 50px 50px;
+  }
+}
 @media screen and (max-width: 768px) {}
 @media screen and (max-width: 480px) {
   .resultado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 50px 10px;
     font-size: 0.9rem;
   }
 
   .resultado>p {
-    width: 100%;
-    text-align: justify;
+    width: 300px;
+    text-align: center;
   }
 }

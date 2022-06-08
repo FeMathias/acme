@@ -17,7 +17,6 @@ import ScrollToTop from "./scrollTop";
 function App() {
   const [search, setSearch] = useState('')
   const lista = Data 
-  const [data, setData] = useState(lista)
 
   
 
@@ -59,7 +58,9 @@ console.log(search)
             <Header />
             <Main />
              <div className='searchbar__container'>
-              <form className='search__form' onKeyPress={(e) => {if (e.nativeEvent.charChode === 13) {}}}>
+              <form className='search__form' onKeyPress={(e) => {if (e.nativeEvent.charChode === 13) {
+                
+              }}}>
               <input type='text' name='searchBar' className='searchbar__input' placeholder='Encontre o seu produto ACME!' onChange={handleChange}/>
               <NavLink to='pesquisa'><button className='searchbar__button'> <BsSearch /></button></NavLink>
               </form>

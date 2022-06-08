@@ -62,7 +62,8 @@ const ProductInfo = (props) => {
           value: infos[id-2].valor,
           id: infos[id-2].id,
           quantity: 1,
-          key: infos[id-2].key
+          key: infos[id-2].key,
+          isFavorite: true
         });
       }
       return newFavs;
